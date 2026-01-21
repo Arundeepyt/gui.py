@@ -1,24 +1,38 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from idlelib.zoomheight import set_window_geometry
+
+from PyQt5.QtGui import QIcon
+from PyQt5.QtWidgets import QApplication, QMainWindow,QLabel
 from PyQt5.QtGui import QIcon
 
-
 class MainWindow(QMainWindow):
+
     def __init__(self):
         super().__init__()
 
-        # Window settings
-        self.setWindowTitle("PyQt Demo")
-        self.setGeometry(300, 200, 600, 400)  # x, y, width, height
-        self.setWindowIcon(QIcon("66-.jpg"))  # make sure file exists
 
 
-def main():
+        self.setWindowTitle("hello world")
+        self.setGeometry(300, 200, 600, 400)
+        self.setWindowIcon(QIcon("66.jpg"))
+        label = QLabel("helllo",self)
+
+
+
+
+
+        def main():
+            app = QApplication(sys.argv)
+            window = MainWindow()
+            window.show()
+            sys.exit(app.exec_())
+
+
+
+if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
-    sys.exit(app.exec_())  # Start event loop
+    sys.exit(app.exec_())
+    sys.exit(0)
 
-
-if __name__ == "__main__":
-    main()
