@@ -1,3 +1,4 @@
+
 import sys
 from idlelib.zoomheight import set_window_geometry
 from tkinter.constants import VERTICAL, BOTTOM
@@ -6,6 +7,7 @@ from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QMainWindow,QLabel
 from PyQt5.QtGui import QFont
 from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QPixmap
 class MainWindow(QMainWindow):
 
     def __init__(self):
@@ -18,7 +20,16 @@ class MainWindow(QMainWindow):
         self.setWindowIcon(QIcon("66.jpg"))
         label = QLabel("helllo",self)
         label.setFont(QFont("Arial", 30))
-        label.setGeometry(50,50,600,400)
+        label.setGeometry(50,50,500,400)
+        pixmap = QPixmap("77.jpg")
+        label.setPixmap(pixmap)
+        label.setScaledContents(False)
+        label.adjustSize()
+        label.move(
+            (self.width() - label.width()) // 2,
+            (self.height() - label.height()) // 2
+        )
+
         label.setStyleSheet("color:BLACK;background-color:#6fdcf7;"
                             "font-weight:bold;"
                             "font-style:italic;"
@@ -56,4 +67,3 @@ if __name__ == '__main__':
     window.show()
     sys.exit(app.exec_())
     sys.exit(0)
-
